@@ -4,35 +4,44 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 // 問題1: 変数と基本的な計算
 // 2つの整数を受け取って、その合計を返す関数を完成させてください
 func addNumbers(a, b int) int {
-	// TODO: ここにコードを書いてください
-	return 0
+	return a + b
 }
 
 // 問題2: 条件分岐
 // 数値が偶数か奇数かを判定する関数を完成させてください
 func isEven(num int) bool {
-	// TODO: ここにコードを書いてください
-	return false
+	return num%2 == 0
 }
 
 // 問題3: ループ
 // 1からnまでの合計を計算する関数を完成させてください
 func sumToN(n int) int {
-	// TODO: ここにコードを書いてください
-	return 0
+	sum := 0
+	for i := 1; i <= n; i++ {
+		sum += i
+	}
+	return sum
 }
 
 // 問題4: スライス操作
 // スライスの中の最大値を求める関数を完成させてください
 func findMax(numbers []int) int {
-	// TODO: ここにコードを書いてください
-	return 0
+	if len(numbers) == 0 {
+		return 0
+	}
+	
+	max := numbers[0]
+	for _, num := range numbers {
+		if num > max {
+			max = num
+		}
+	}
+	return max
 }
 
 // 問題5: 構造体
@@ -43,15 +52,24 @@ type Student struct {
 }
 
 func calculateAverage(student Student) float64 {
-	// TODO: ここにコードを書いてください
-	return 0.0
+	if len(student.Scores) == 0 {
+		return 0.0
+	}
+	
+	sum := 0
+	for _, score := range student.Scores {
+		sum += score
+	}
+	return float64(sum) / float64(len(student.Scores))
 }
 
 // 問題6: エラーハンドリング
 // 0で割り算をしようとした場合にエラーを返す関数を完成させてください
 func divide(a, b float64) (float64, error) {
-	// TODO: ここにコードを書いてください
-	return 0.0, nil
+	if b == 0 {
+		return 0, fmt.Errorf("0で割り算できません")
+	}
+	return a / b, nil
 }
 
 func main() {
